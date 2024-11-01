@@ -1,24 +1,13 @@
-# LLM-based Voice Assistant 
-This is an AI Voice Assistant based on Large Language Models. A user can interact with the Voice Assistant in natural language, currently English. 
+# FastAPI Chat Robot Demo
 
-The implementation brings various deep learning models together: 
-- Large Language Model (GPT-4 or Alpaca, can be chosen) 
-- Speech-To-Text Model (Wave2Vec2-Large)
-- Text-To-Speech Model (Microsoft SpeechT5)
+A fast API demo for a chat robot based on LLM using PyTorch, FastAPI, and WebSockets.
 
-The speech module is interfaced with the local microphone to create live transcription via a VAD Process. A transcription is sent to the chosen LLM for processing based on wake words. 
+## Overview
 
-Once the LLM generates a response, speech module also saves the audio file and generates a speech output using a TTS model. 
+This project showcases a chat robot that leverages Large Language Models (LLM) to facilitate real-time communication. You can install it on your server and interact with it via WebSockets.
 
-The User Interface is built using [Streamlit](https://docs.streamlit.io) and provides a familiar Chat-like experience. 
+## Features
 
-# Demo
-![image](demo.png)
-
-# Installation 
-Install project dependencies
-```
-pip install -r requirements 
-```
-
-If using GPT Models, create a `.env` file with environment variables for `OPENAI_API_KEY` and `OPENAI_API_BASE`. 
+- **WebSocket Communication**: Enables real-time audio streaming and interaction.
+- **Microphone Audio Streaming**: Utilize PyAudio for capturing and streaming audio input.
+- **FastAPI**: A modern web framework for building APIs with Python 3.6+ based on standard Python type hints.
