@@ -31,15 +31,15 @@ class TextToSpeechModel():
         speaker_embeddings = torch.tensor(self.embeddings_dataset[7306]["xvector"], device=device).unsqueeze(0)
 
         speech = self.model.generate_speech(inputs["input_ids"], speaker_embeddings, vocoder=self.vocoder)
-        out_file_path = f"saved_audio/speech{time.time()}.wav"
+        # out_file_path = f"saved_audio/speech{time.time()}.wav"
 
-        soundfile.write(out_file_path, 
-                speech.cpu().numpy(), 
-                samplerate=16000)
-        et = time.time()
-        print("Time:", et-st)
+        # soundfile.write(out_file_path, 
+        #         speech.cpu().numpy(), 
+        #         samplerate=16000)
+        # et = time.time()
+        # print("Time:", et-st)
         
-        return out_file_path
+        return speech.cpu().numpy()
 
 # tts = TextToSpeechModel()
 # tts.tts_generator("This is some random text.")

@@ -10,6 +10,7 @@ class Inference():
         self.stt = SpeechToTextModel()
 
     def buffer_to_text(self, audio_buffer):
+        print("audio buffer", len(audio_buffer))
         if(len(audio_buffer)==0):
             return ""
 
@@ -17,6 +18,8 @@ class Inference():
                                 sampling_rate=16000, 
                                 return_tensors="pt", 
                                 padding=True)
+        
+        
 
         with torch.no_grad():
             logits = self.stt.model(inputs.input_values, 
@@ -37,6 +40,7 @@ class Inference():
             transcript = self.stt.processor.batch_decode(predicted_ids)[0]
             confidence = self.confidence_score(logits,predicted_ids)
 
+        
         return transcript, confidence 
 
     def confidence_score(self, logits, predicted_ids):

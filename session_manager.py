@@ -18,5 +18,6 @@ def is_user_talking_to_me(transcript, wake_words):
     return False
 
 def update_conversation(current_conversation, role, content):
-    message = {"role": role, "content": content}
-    current_conversation.append(message)
+    # message = {"role": role, "content": content}
+    current_conversation[role] += content
+    # current_conversation.append(message)
